@@ -21,14 +21,63 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 
 
 ## Restaurant Model
-| Field Name  | Data Type | Description                                       |
-|-------------|-----------|---------------------------------------------------|
-| id          | integer   | Unique identifier for the record                  |
-| name        | text      | Name of the restaurant                          |
-| main_img    | text      | URL of the main image for the item                 |
-| images      | text[]    | Array of URLs for additional images of the item    |
-| description | text      | Description of the item                            |
-| open_time   | text      | Opening time of the establishment                  |
-| close_time  | text      | Closing time of the establishment                  |
-| slug        | text      | Unique identifier used in URLs for the restaurant  |      |
-| price       | enum      | Price category                                      |
+| Field Name   | Data Type  | Description                                                |
+|--------------|------------|------------------------------------------------------------|
+| id           | integer    | Unique identifier for the record                           |
+| name         | text       | Name of the restaurant                                      |
+| slug         | text       | Unique identifier used in URLs for the restaurant           |
+| price        | enum       | Price range of the restaurant (cheap, regular, or expensive)|
+| description  | text       | Description of the restaurant                               |
+| main_img     | text       | URL of the main image for the restaurant                    |
+| images       | text[]     | Array of URLs for additional images of the restaurant       |
+| open_time    | text       | Opening time of the restaurant                              |
+| close_time   | text       | Closing time of the restaurant                              |
+| items        | Item[]     | Array of items available at the restaurant                  |
+| location_id  | integer    | ID of the location where the restaurant is situated         |
+| location     | Location   | Location where the restaurant is situated                   |
+| cuisine_id   | integer    | ID of the cuisine associated with the restaurant            |
+| cuisine      | Cuisine    | Cuisine associated with the restaurant                       |
+| created_at   | datetime   | Date and time the record was created                        |
+| updated_at   | datetime   | Date and time the record was updated                        |
+
+## Item Model
+
+| Field Name    | Data Type | Description                                               |
+|---------------|-----------|-----------------------------------------------------------|
+| id            | integer   | Unique identifier for the record                          |
+| name          | text      | Name of the item                                          |
+| price         | text      | Price of the item                                         |
+| description   | text      | Description of the item                                    |
+| restaurant_id | integer   | ID of the restaurant that offers the item                  |
+| restaurant    | Restaurant| Restaurant that offers the item                            |
+| created_at    | datetime  | Date and time the record was created                       |
+| updated_at    | datetime  | Date and time the record was updated                       |
+
+## Location Model
+
+| Field Name   | Data Type | Description                           |
+|--------------|-----------|---------------------------------------|
+| id           | integer   | Unique identifier for the record      |
+| name         | text      | Name of the location                   |
+| restaurant   | Restaurant[] | Array of restaurants associated with the location |
+| created_at   | datetime  | Date and time the record was created  |
+| updated_at   | datetime  | Date and time the record was updated  |
+
+## Cuisine Model
+
+
+| Field Name   | Data Type | Description                           |
+|--------------|-----------|---------------------------------------|
+| id           | integer   | Unique identifier for the record      |
+| name         | text      | Name of the cuisine                    |
+| restaurant   | Restaurant[] | Array of restaurants associated with the cuisine |
+| created_at   | datetime  | Date and time the record was created  |
+| updated_at   | datetime  | Date and time the record was updated  |
+
+## Price Categories
+
+| Enum Value | Description       |
+|------------|-------------------|
+| CHEAP      | Inexpensive       |
+| REGULAR    | Average-priced    |
+| EXPENSIVE  | High-end          |
