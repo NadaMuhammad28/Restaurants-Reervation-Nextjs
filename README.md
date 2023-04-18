@@ -15,22 +15,20 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 
-## Restaurant table
+## Restaurant Model
 | Field Name  | Data Type | Description                                       |
 |-------------|-----------|---------------------------------------------------|
 | id          | integer   | Unique identifier for the record                  |
-| name        | text      | Name of the item                                  |
+| name        | text      | Name of the restaurant                          |
 | main_img    | text      | URL of the main image for the item                 |
 | images      | text[]    | Array of URLs for additional images of the item    |
 | description | text      | Description of the item                            |
 | open_time   | text      | Opening time of the establishment                  |
 | close_time  | text      | Closing time of the establishment                  |
-| slug        | text      | Unique identifier used in URLs for the item         |
-| price       | integer   | Price of the item, in cents (e.g. $5.99 is 599)    |
+| slug        | text      | Unique identifier used in URLs for the restaurant  |      |
+| price       | enum      | Price category                                      |
