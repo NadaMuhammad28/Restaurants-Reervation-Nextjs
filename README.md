@@ -36,3 +36,15 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Restaurant table
+| Field Name  | Data Type | Description                                       |
+|-------------|-----------|---------------------------------------------------|
+| id          | integer   | Unique identifier for the record                  |
+| name        | text      | Name of the item                                  |
+| main_img    | text      | URL of the main image for the item                 |
+| images      | text[]    | Array of URLs for additional images of the item    |
+| description | text      | Description of the item                            |
+| open_time   | text      | Opening time of the establishment                  |
+| close_time  | text      | Closing time of the establishment                  |
+| slug        | text      | Unique identifier used in URLs for the item         |
+| price       | integer   | Price of the item, in cents (e.g. $5.99 is 599)    |
