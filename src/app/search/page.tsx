@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import Header from "./components/Header";
 import RestaurantResult from "./components/RestaurantResult";
 import SearchSideBar from "./components/SearchSideBar";
@@ -12,6 +13,7 @@ const Search = () => {
           <SearchSideBar />
           <div className="w-5/6">
             {/* RESAURANT CAR */}
+
             <RestaurantResult />
             {/* RESAURANT CAR */}
           </div>

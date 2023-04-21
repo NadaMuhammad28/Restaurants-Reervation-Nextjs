@@ -1,4 +1,16 @@
+import CardSkeleton from "@/skeletones/CardSkeleton";
+import Hero from "./components/home/Hero";
+
 export default function Loading() {
-  // You can add any UI inside Loading, including a Skeleton.
-  return <h1>loadingg</h1>;
+  return (
+    <>
+      <Hero />
+
+      <div className="py-3 px-36 mt-10 flex flex-wrap justify-center">
+        {new Array(16).fill(null).map((card, index) => (
+          <CardSkeleton key={index} />
+        ))}
+      </div>
+    </>
+  );
 }

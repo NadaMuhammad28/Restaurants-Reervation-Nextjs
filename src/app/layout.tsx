@@ -15,13 +15,13 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <main className="bg-gray-100 min-h-screen w-screen">
-          <main className="max-w-screen-2xl m-auto bg-white">
+          <div className="max-w-screen-2xl m-auto bg-white">
             <NavBar />
             {children}
-          </main>
+          </div>
         </main>
       </body>
     </html>
   );
 }
-//050e197b2e480da31820d8d34c7ae7f5ffc69ad4
+//

@@ -1,0 +1,42 @@
+.skeleton {
+  border-radius: 0.25rem;
+  animation: skeleton-loading 1s linear infinite alternate;
+}
+
+.skeleton-card-p {
+  width: 20%;
+  height: 0.7rem;
+}
+
+.skeleton-card-img {
+  width: 100%;
+}
+
+.skeleton-card-reviews {
+  width: 10%;
+  height: 0.7rem;
+}
+
+.skeleton-card-stars {
+  width: 20%;
+  height: 0.7rem;
+}
+
+.skeleton-card-title {
+  width: 50%;
+  height: 0.9rem;
+}
+
+.skeleton-card-booking {
+  width: 70%;
+  height: 0.7rem;
+}
+
+@keyframes skeleton-loading {
+  0% {
+    background-color: hsl(200, 20%, 80%);
+  }
+  100% {
+    background-color: hsl(200, 20%, 95%);
+  }
+}
