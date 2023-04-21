@@ -1,5 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
+# OpenTable Clone
 ## Getting Started
 
 First, run the development server:
@@ -16,23 +15,69 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
 The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
 This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Learn More
 
-To learn more about Next.js, take a look at the following resources:
+## Restaurant Model
+| Field Name   | Data Type  | Description                                                |
+|--------------|------------|------------------------------------------------------------|
+| id           | integer    | Unique identifier for the record                           |
+| name         | text       | Name of the restaurant                                      |
+| slug         | text       | Unique identifier used in URLs for the restaurant           |
+| price        | enum       | Price range of the restaurant (cheap, regular, or expensive)|
+| description  | text       | Description of the restaurant                               |
+| main_img     | text       | URL of the main image for the restaurant                    |
+| images       | text[]     | Array of URLs for additional images of the restaurant       |
+| open_time    | text       | Opening time of the restaurant                              |
+| close_time   | text       | Closing time of the restaurant                              |
+| items        | Item[]     | Array of items available at the restaurant                  |
+| location_id  | integer    | ID of the location where the restaurant is situated         |
+| location     | Location   | Location where the restaurant is situated                   |
+| cuisine_id   | integer    | ID of the cuisine associated with the restaurant            |
+| cuisine      | Cuisine    | Cuisine associated with the restaurant                       |
+| created_at   | datetime   | Date and time the record was created                        |
+| updated_at   | datetime   | Date and time the record was updated                        |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Item Model
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+| Field Name    | Data Type | Description                                               |
+|---------------|-----------|-----------------------------------------------------------|
+| id            | integer   | Unique identifier for the record                          |
+| name          | text      | Name of the item                                          |
+| price         | text      | Price of the item                                         |
+| description   | text      | Description of the item                                    |
+| restaurant_id | integer   | ID of the restaurant that offers the item                  |
+| restaurant    | Restaurant| Restaurant that offers the item                            |
+| created_at    | datetime  | Date and time the record was created                       |
+| updated_at    | datetime  | Date and time the record was updated                       |
 
-## Deploy on Vercel
+## Location Model
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+| Field Name   | Data Type | Description                           |
+|--------------|-----------|---------------------------------------|
+| id           | integer   | Unique identifier for the record      |
+| name         | text      | Name of the location                   |
+| restaurant   | Restaurant[] | Array of restaurants associated with the location |
+| created_at   | datetime  | Date and time the record was created  |
+| updated_at   | datetime  | Date and time the record was updated  |
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Cuisine Model
+
+
+| Field Name   | Data Type | Description                           |
+|--------------|-----------|---------------------------------------|
+| id           | integer   | Unique identifier for the record      |
+| name         | text      | Name of the cuisine                    |
+| restaurant   | Restaurant[] | Array of restaurants associated with the cuisine |
+| created_at   | datetime  | Date and time the record was created  |
+| updated_at   | datetime  | Date and time the record was updated  |
+
+## Price Categories
+
+| Enum Value | Description       |
+|------------|-------------------|
+| CHEAP      | Inexpensive       |
+| REGULAR    | Average-priced    |
+| EXPENSIVE  | High-end          |
